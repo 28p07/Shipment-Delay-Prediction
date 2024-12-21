@@ -96,7 +96,3 @@ project-directory/
 - If you encounter an error related to missing packages, ensure all required libraries are installed.
 - Verify that the `.pkl` files are correctly loaded and correspond to your dataset.
 
-## License
-
-This project is licensed under the MIT License. Feel free to use and modify it as needed.
-
