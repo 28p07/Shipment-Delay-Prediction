@@ -132,5 +132,5 @@ project-directory/
   - Recall: How many of the actual delays were correctly predicted.
   - Random Forest outperformed Logistic Regression in all metrics, particularly in precision, where it achieved a perfect score of 1.0. Based on this performance, the Random Forest model was chosen as the final model.
 
-5. Final Model
+### 5. Final Model
 The best-performing Random Forest model was saved using joblib, allowing it to be loaded and used for future predictions without retraining.
