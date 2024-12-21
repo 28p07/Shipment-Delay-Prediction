@@ -98,7 +98,7 @@ project-directory/
 
 
 ## Steps and Decisions
-1. Data Preprocessing
+### 1. Data Preprocessing
 - Handling Missing Values:
   Missing values in the 'Vehicle Type' column were handled by randomly imputing them based on the distribution of existing values. This ensures that the dataset is complete without introducing bias from missing data.
   
@@ -111,11 +111,11 @@ project-directory/
 - Removing Duplicates:
   Duplicate rows were removed to ensure the model does not learn from repeated data, which could result in overfitting and inaccurate predictions.
   
-2. Feature Engineering
+### 2. Feature Engineering
 - Label Encoding:
   Categorical columns such as 'Origin', 'Destination', 'Weather Conditions', 'Traffic Conditions', and 'Vehicle Type' were transformed into numerical values using Label Encoding. This allows the categorical variables to be used in machine learning models.
   
-3. Model Selection and Training
+### 3. Model Selection and Training
   The data was split into training and testing sets. Two models were considered: Logistic Regression and Random Forest.
 
 - Logistic Regression:
@@ -124,14 +124,13 @@ project-directory/
 - Random Forest:
   A similar hyperparameter tuning process was applied to optimize parameters like the number of estimators, maximum depth, and split criteria.
   
-4. Model Evaluation
-The models were evaluated using the following metrics:
-
-Accuracy: Overall performance of the model.
-F1 Score: Balance between precision and recall.
-Precision: How many of the predicted delays were actually delayed.
-Recall: How many of the actual delays were correctly predicted.
-Random Forest outperformed Logistic Regression in all metrics, particularly in precision, where it achieved a perfect score of 1.0. Based on this performance, the Random Forest model was chosen as the final model.
+### 4. Model Evaluation
+   The models were evaluated using the following metrics:
+  - Accuracy: Overall performance of the model.
+  - F1 Score: Balance between precision and recall.
+  - Precision: How many of the predicted delays were actually delayed. 
+  - Recall: How many of the actual delays were correctly predicted.
+  - Random Forest outperformed Logistic Regression in all metrics, particularly in precision, where it achieved a perfect score of 1.0. Based on this performance, the Random Forest model was chosen as the final model.
 
 5. Final Model
 The best-performing Random Forest model was saved using joblib, allowing it to be loaded and used for future predictions without retraining.
