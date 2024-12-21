@@ -99,9 +99,9 @@ project-directory/
 
 ## Steps and Decisions
 1. Data Preprocessing
--Handling Missing Values:
+- Handling Missing Values:
 
-Missing values in the 'Vehicle Type' column were handled by randomly imputing them based on the distribution of existing values. This ensures that the dataset is complete without introducing bias from missing data.
+  Missing values in the 'Vehicle Type' column were handled by randomly imputing them based on the distribution of existing values. This ensures that the dataset is complete without introducing bias from missing data.
 Dropping Date Columns:
 
 Columns such as 'Shipment Date', 'Planned Delivery Date', and 'Actual Delivery Date' were dropped. These columns were direct indicators of shipment delays and using them would lead to data leakage, where the model could have access to future information.
