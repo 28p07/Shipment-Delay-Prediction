@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipment Delay Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #555555;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+            background-color: #f9f9f9;
+        }
+
+        select:focus, input[type="number"]:focus {
+            border-color: #007bff;
+            outline: none;
+            background-color: #ffffff;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:active {
+            background-color: #003f7f;
+        }
+
+        .form-container p {
+            font-size: 12px;
+            text-align: center;
+            color: #999999;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Shipment Delay Prediction</h2>
+        <form action="/predict" method="POST">
+            <!-- Origin -->
+            <label for="Origin">Origin:</label>
+            <select name="Origin" id="Origin" required>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Lucknow">Lucknow</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Pune">Pune</option>
+            </select>
+
+            <!-- Destination -->
+            <label for="Destination">Destination:</label>
+            <select name="Destination" id="Destination" required>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Lucknow">Lucknow</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Pune">Pune</option>
+            </select>
+
+            <!-- Vehicle Type -->
+            <label for="VehicleType">Vehicle Type:</label>
+            <select name="Vehicle Type" id="VehicleType" required>
+                <option value="Container">Container</option>
+                <option value="Lorry">Lorry</option>
+                <option value="Trailer">Trailer</option>
+                <option value="Truck">Truck</option>
+            </select>
+
+            <!-- Distance -->
+            <label for="Distance">Distance (km):</label>
+            <input type="number" name="Distance" id="Distance" step="0.01" required>
+
+            <!-- Weather Conditions -->
+            <label for="WeatherConditions">Weather Conditions:</label>
+            <select name="Weather Conditions" id="WeatherConditions" required>
+                <option value="Clear">Clear</option>
+                <option value="Fog">Fog</option>
+                <option value="Rain">Rain</option>
+                <option value="Storm">Storm</option>
+            </select>
+
+            <!-- Traffic Conditions -->
+            <label for="TrafficConditions">Traffic Conditions:</label>
+            <select name="Traffic Conditions" id="TrafficConditions" required>
+                <option value="Light">Light</option>
+                <option value="Moderate">Moderate</option>
+                <option value="Heavy">Heavy</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+        {% if prediction %}
+        <div class="result">
+            Result: {{ prediction }}
+        </div>
+        {% endif %}
+        <p>&copy; 2024 Shipment Predictor</p>
+    </div>
+</body>
+</html>
